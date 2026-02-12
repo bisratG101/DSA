@@ -1,1 +1,1 @@
-<h2>minimum-index-sum-of-two-lists Notes</h2><hr>[ Time taken: 33 m 46 s ]
+<h2>minimum-index-sum-of-two-lists Notes</h2><hr>[ Time taken: 3 m 55 s ]
