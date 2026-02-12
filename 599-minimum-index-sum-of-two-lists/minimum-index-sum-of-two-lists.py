@@ -10,11 +10,12 @@ class Solution:
 
         for i in range(len(list2)):
             if list2[i] in list1:
-                if mp[list2[i]]+ i < sumi:
+                indexSum = i + mp[list2[i]]
+                if indexSum < sumi:
                     ans=[]
                     ans.append(list2[i])
-                    sumi = mp[list2[i]]+i
-                elif  mp[list2[i]]+ i == sumi:
+                    sumi = indexSum
+                elif  indexSum == sumi:
                     ans.append(list2[i])
         return ans
 
