@@ -2,12 +2,12 @@ class Solution:
     def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
 
         mp = {}
-        sumi = 2001
+        sumi =float('+inf')
         ans = []
        
         for i , v in enumerate(list1):
             mp[v] =i
-
+        
         for i in range(len(list2)):
             if list2[i] in list1:
                 indexSum = i + mp[list2[i]]
