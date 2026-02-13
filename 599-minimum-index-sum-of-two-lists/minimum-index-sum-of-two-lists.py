@@ -2,22 +2,28 @@ class Solution:
     def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
 
         mp = {}
-        sumi =float('+inf')
+        minI = 2001
         ans = []
-       
-        for i , v in enumerate(list1):
-            mp[v] =i
-        
+
+        for i in range(len(list1)):
+            mp[list1[i]] = i
         for i in range(len(list2)):
-            if list2[i] in list1:
-                indexSum = i + mp[list2[i]]
-                if indexSum < sumi:
-                    ans=[]
+            if list2[i] in mp:
+                n = mp[list2[i]] + i
+                if n < minI:
+                    ans.clear()
                     ans.append(list2[i])
-                    sumi = indexSum
-                elif  indexSum == sumi:
+                    minI = n
+                elif n == minI:
                     ans.append(list2[i])
         return ans
+
+
+
+
+
+
+        
 
 
 
