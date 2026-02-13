@@ -10,6 +10,7 @@ class Solution:
                 m = chars.count(ch)
                 if n > m:
                     b = False
+                    break 
             if b:
                 sumLength += len(word)
         return sumLength
