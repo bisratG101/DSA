@@ -6,10 +6,10 @@ class Solution(object):
         :rtype: List[int]
         """
 
-        for i in range(len(nums)):
-            for j in range(i+1 , len(nums)):
-                if nums[i]+nums[j]==target:
-                    return i , j
+        # for i in range(len(nums)):
+        #     for j in range(i+1 , len(nums)):
+        #         if nums[i]+nums[j]==target:
+        #             return i , j
         
 
 
@@ -18,15 +18,15 @@ class Solution(object):
         
 
 
-        # num_map = {}
+        num_map = {}
 
-        # for i in range (len(nums)):
-        #     check = target - nums[i]
-        #     if nums[i] in num_map : return num_map[nums[i]] , i
+        for i in range (len(nums)):
+            check = target - nums[i]
+            if nums[i] in num_map : return num_map[nums[i]] , i
 
-        #     num_map[check] = i 
+            num_map[check] = i 
 
-        # return [] 
+        return [] 
 
 
 
