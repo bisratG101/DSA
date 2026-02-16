@@ -4,7 +4,11 @@ class FrequencyTracker:
         self.mp_count = {}
         self.mp_ferq = {}     
        
-    def add(self, number: int) -> None: 
+    def add(self, number: int) -> None:
+        if number not in self.mp_count:
+            self.mp_count[number]=1
+            self.mp_ferq[1]=self.mp_ferq.get(1,0)+1
+            return
         old = self.mp_count.get(number,0)  
         
         new = old+1
