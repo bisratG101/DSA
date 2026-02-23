@@ -1,11 +1,21 @@
 class Solution:
     def restoreString(self, s: str, indices: list[int]) -> str:
-        res =""
-        for i in range(len(indices)):
-            index = indices.index(i)
-            res += s[index]
 
-        return res
+
+
+        n = len(s)
+        res = [""]*n
+        for i in range(len(indices)):
+            res[indices[i]] = s[i]
+        return "".join(res) 
+
+        # first trial
+        # res =""
+        # for i in range(len(indices)):
+        #     index = indices.index(i)
+        #     res += s[index]
+
+        # return res
 
 
 
