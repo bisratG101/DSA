@@ -1,23 +1,40 @@
 class Solution:
     def intToRoman(self, num: int) -> str:
-    # Thirs tiral
-        intTo = [
-            1000 , 900 , 500 , 400 , 
-            100 , 90 , 50 , 40,
-            10 , 9 , 5 , 4 , 1
-            ] 
-        roman = [
-            "M" , "CM" ,"D" , "CD",
-            "C" , "XC", "L" ,"XL",
-            "X" , "IX" , "V" , "IV" , "I"
-        ]
+    # Forth
+        thousands = ["", "M", "MM", "MMM"]
+        hundreds  = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]
+        tens      = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]
+        ones      = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]
+        return (
+            thousands[num//1000]+
+            hundreds[(num%1000)//100]+
+            tens[(num%100)//10]+
+            ones[num%10]
 
-        res =""
-        for i in range(len(intTo)):
-            while num >= intTo[i]:
-                num-=intTo[i]
-                res +=roman[i]
-        return res 
+        )
+    
+    
+    
+    
+    
+    # Third tiral
+        # intTo = [
+        #     1000 , 900 , 500 , 400 , 
+        #     100 , 90 , 50 , 40,
+        #     10 , 9 , 5 , 4 , 1
+        #     ] 
+        # roman = [
+        #     "M" , "CM" ,"D" , "CD",
+        #     "C" , "XC", "L" ,"XL",
+        #     "X" , "IX" , "V" , "IV" , "I"
+        # ]
+
+        # res =""
+        # for i in range(len(intTo)):
+        #     while num >= intTo[i]:
+        #         num-=intTo[i]
+        #         res +=roman[i]
+        # return res 
 
 
 
