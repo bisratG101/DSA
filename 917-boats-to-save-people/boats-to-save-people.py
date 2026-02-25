@@ -6,7 +6,7 @@ class Solution:
         left = 0
         right = n-1
         boat = 0
-        people = sorted(people)
+        people.sort()
         while left <=right:
             if people[right]+people[left] <=limit:
                 left+=1
