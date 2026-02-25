@@ -7,17 +7,34 @@ class Solution:
         right = n-1
         boat = 0
         people = sorted(people)
-        while(left < right ):
-            if people[right]==limit or people[right]+people[left] >limit :
-                boat+=1
-                right-=1
-            else:
-                boat+=1
-                right-=1
+        while left <=right:
+            if people[right]+people[left] <=limit:
                 left+=1
+            right-=1
+            boat+=1
+        return boat
+        
+
+
+
+        # n = len(people)
+        # if n ==1: return 1 
+
+        # left = 0
+        # right = n-1
+        # boat = 0
+        # people = sorted(people)
+        # while(left < right ):
+        #     if people[right]==limit or people[right]+people[left] >limit :
+        #         boat+=1
+        #         right-=1
+        #     else:
+        #         boat+=1
+        #         right-=1
+        #         left+=1
                 
-        if left==right : boat+=1
-        return boat 
+        # if left==right : boat+=1
+        # return boat 
 
 
 
