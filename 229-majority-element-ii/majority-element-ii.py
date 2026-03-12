@@ -1,82 +1,31 @@
 class Solution:
-    def majorityElement(self, nums: List[int]) -> List[int]:
-       
-        n =len(nums)
-        count1 = 0
-        count2 =0 
-        ele1 = -100000004
-        ele2 = -100000004
-        ans = []
-        for i in range(len(nums)):
-            if count1 ==0 and ele2!=nums[i]:
-                ele1= nums[i]
-                count1 =1
-            elif count2 == 0 and ele1 != nums[i]:
-                ele2 = nums[i]
-                count2 =1
-            elif ele1==nums[i]: count1+=1
-            elif ele2 == nums[i]: count2+=1
-            else :
-                count1 -=1
-                count2 -=1
-        count1= 0
-        count2 = 0
-        for i in range(len(nums)):
-            if nums[i] == ele1: count1 +=1
-            if nums[i] == ele2 : count2 +=1
+    def majorityElement(self, nums):# 1. Find potential candidates
+        candidate1, candidate2 = None, None
+        count1, count2 = 0, 0
         
-        if count1 > n/3: ans.append(ele1)
-        if count2 > n/3 : ans.append(ele2)
-        return ans 
-
-
-        
+        for num in nums:
+            if candidate1 == num:
+                count1 += 1
+            elif candidate2 == num:
+                count2 += 1
+            elif count1 == 0:
+                candidate1 = num
+                count1 = 1
+            elif count2 == 0:
+                candidate2 = num
+                count2 = 1
+            else:
+                count1 -= 1
+                count2 -= 1
         
        
+        result = []
+        n = len(nums)
 
+        if nums.count(candidate1) > n // 3:
+            result.append(candidate1)
 
+        if candidate2 != candidate1 and nums.count(candidate2) > n // 3:
+            result.append(candidate2)
 
-
-
-
-
-
-
-
-
-        # n=len(nums)
-        # # Better solution 
-        # mp= {}
-        # ans = []
-        # for i in range(len(nums)):
-        #     if nums[i] not in  mp:
-        #         mp[nums[i]]=0
-        #     mp[nums[i]]+=1
-        # for key , value in mp.items():
-        #     if value > n/3: 
-        #         ans.append(key)
-
-        # return ans 
-
-
-
-
-
-
-
-
-
-        # Brute Force
-        # ans =[]
-        # for i in range(len(nums)):
-        #     count =0    
-        #     for j in range(len(nums)):
-        #         if nums[i]==nums[j]:
-        #             count+=1
-        #     if count > len(nums)/3:
-        #         if nums[i] not in ans : 
-        #             ans.append(nums[i])
-        # return ans
-        
-
-        
+        return result
