@@ -1,105 +1,22 @@
-class Solution:
-    def moveZeroes(self, nums: List[int]) -> None:
+class Solution(object):
+    def moveZeroes(self, s):
         """
-        Do not return anything, modify nums in-place instead.
-        """ 
-
-        # Optimal solution useing two pointer
-
+        :type nums: List[int]
+        :rtype: None Do not return anything, modify nums in-place instead.
+        """
         i = 0
-        for j in range(len(nums)):            
-            if nums[j] != 0:
-                nums[i] , nums[j] = nums[j] , nums[i]
+        right = i+1
+        while(right<len(s) and i < len(s)):
+            if s[right]==0:
+                right+=1
+                continue 
+            if s[i] ==0:
+                s[i],s[right]=s[right],s[i]
                 i+=1
-        return nums
+                right+=1
+            else:
+                i+=1
+                right=i+1
+                
+        return s
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        # i = 0 
-        # for j in range(len(nums)):
-        #     if nums[j]!=0:
-        #         nums[i] , nums[j] = nums[j] , nums[i]
-        #         i+=1
-        # return nums
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        # Burte-Force solution 
-
-        # temp = []
-        # for i in range(len(nums)):
-        #     if nums[i]!=0:
-        #         temp.append(nums[i])
-        # for i in range(len(nums)):
-        #     if i <=len(temp)-1:
-        #         nums[i]=temp[i]
-        #     else:
-        #         nums[i]=0
-        # return nums 
-        
-
-
-
-
-    
-
-
-
-
-
-
-    
-        # # if len(nums) == 1: return nums
-
-        # # j = 0
-        
-        # for i in range(len(nums)):
-        #     if nums[i] != 0:
-        #         nums[j] , nums[i] = nums[i] , nums[j]
-        #         j+=1
-        # return nums
-
-
-        
-            
-            
-           
-        # return nums
-
-
-
-        
-        # for i in range(len(nums)):
-        #     if(nums[i]==0):
-        #         for j in range (i+1 , len(nums)):
-        #             if nums[j]!=0:
-        #                 nums[i] , nums[j] = nums[j] , nums[i]
-        #                 break 
-        
-
-        # return nums
